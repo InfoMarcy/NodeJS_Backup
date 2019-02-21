@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= pageTitle %></title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
+<body>
+    
+<main class="container row" style="margin-top: 10px;">
+<div class="col-xs 12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+    <form autocomplete="off" method="POST" role="form" action="/banca_digital/v1/login">
+      <h4 class="text-center">Inicio de Sesión</h4> 
+
+     <% if (errorMessage)  { %>
+        <div class="alert alert-warning text-center">
+          <%= errorMessage %>
+        </div>
+       <% } %> 
+
+
+        <div class="form-group">
+          <label for="username"> <b>Usuario</b></label>    
+          <input type="text" maxlength="8" name="username" id="username" class="form-control" placeholder="Número de Empleado" pattern="[0-9]*" inputmode="numeric"  oninvalid="this.setCustomValidity('Solo se permiten valores númericos')"
+          oninput="this.setCustomValidity('')" />
+        </div>
+        <div class="form-group">
+          <label for="password"><b>Contraseña</b></label>
+          <input type="password" maxlength="30" name="password" id="password"  class="form-control" placeholder="Contraseña"  maxlength="32"  
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,}$" 
+          oninvalid="this.setCustomValidity('Solo se permite un mínimo de 9 caracteres alfanuméricos, por los menos un número, una letra mayúscula, una letra minúscula y un carácter especial.')"
+          oninput="this.setCustomValidity('')" />
+        </div>
+          <input type="hidden" id="AuthorizationCode" name="AuthorizationCode" />
+          <input type="hidden" id="redirectURl" name="redirectURl"  />
+
+       
+
+        <button type="submit" class="btn btn btn-primary" name="login">
+          Iniciar Sesión
+        </button>
+      </form>
+    </div>
+</main>
+
+</body>
+
+<script>
+
+  function getQueryStringValue(key) {
+    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+  };
+
+  document.getElementById('AuthorizationCode').value = getQueryStringValue("code");
+
+
+  document.getElementById('redirectURl').value = getQueryStringValue("redirectURl");
+
+  // input validation
+  $('#username').on('keypress', function(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode;
+    return !(charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57));
+});
+
+
+</script>
+
+</html>

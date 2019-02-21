@@ -1,0 +1,21 @@
+{
+    "name": "WS Baja Usuarios Git",
+    "pathUrl": "/api/v4/users",
+    "hostUrl": "",
+    "UserMonitoreoID" : "",
+    "PORT" : 3000,
+    "OauthHostName": "",
+    "OauthPORT": "",
+    "OauthPATH": "",
+    "OauthMethod": "GET",
+    "ENCRIPT": "secretw",
+    "CyberArkHostUrl":  "",
+    "CyberArkPath": "",
+    "CyberArkPort": "",
+    "CyberArkMethod": "GET",
+    "CyberArkAppID": "",
+    "CyberArkSafe":  "",
+    "CyberArkFolder": "",
+    "CyberArkObject" : "",
+    "WSMethod": "POST"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Cifrado APP",
+    "PORT" : 4000,
+    "ENCRIPT": "secret"
+}

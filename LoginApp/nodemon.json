@@ -1,0 +1,6 @@
+{
+    "env": {
+        "NAME": "Banca Digital Login App",
+        "PORT": 5000
+    }
+}

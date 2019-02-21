@@ -1,0 +1,9 @@
+{
+    "name": "Banca Digital Login App",
+    "jwtPrivateKey" :"secret",
+    "cookieKey" : "dsadsa21321sdfdsfdsffs",
+    "USUARIO_FAKE": "98418902",
+    "IDMFallo": true
+
+
+}
